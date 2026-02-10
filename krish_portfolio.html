@@ -674,14 +674,6 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     <footer class="py-20 text-center text-gray-600 text-sm border-t border-white/5 bg-[#030303]">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
             <p class="mb-6">© <span id="year">2026</span> KRISH | Strategic QA Portfolio</p>
-            
-            <button onclick="downloadFile()" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-gray-300 transition-all text-xs font-bold uppercase tracking-widest">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" aria-hidden="true" size="14" class="lucide lucide-download"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
-                Download This Website (.html)
-            </button>
-            <p class="mt-4 text-[10px] opacity-40 max-w-xs leading-relaxed">
-                Clicking download will save the source code of this portfolio to your computer.
-            </p>
         </div>
     </footer>
 
@@ -709,25 +701,6 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 }
             });
         });
-
-        // DOWNLOAD UTILITY
-        function downloadFile() {
-            try {
-                const content = document.documentElement.outerHTML;
-                const blob = new Blob([content], { type: 'text/html' });
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = 'krish_portfolio.html';
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-            } catch (err) {
-                console.error("Download failed:", err);
-            }
-        }
     </script>
 
 </body></html>
